@@ -11,17 +11,14 @@
 public class Dokter extends Orang{
 
     private int id;
-    private String spesialis;
     
-    public Dokter(String nama, String alamat, int id, String spesialis) {
-        super(nama, alamat);
-        this.id = id;
-        this.spesialis = spesialis;
-    }
-    
-    public Dokter(String nama, int id) {
+    public Dokter(int id, String nama) {
         super(nama);
         this.id = id;
+    }
+    
+    public Dokter(String nama) {
+        super(nama);
     }
 
     public int getId() {
@@ -30,14 +27,6 @@ public class Dokter extends Orang{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getSpesialis() {
-        return spesialis;
-    }
-
-    public void setSpesialis(String spesialis) {
-        this.spesialis = spesialis;
     }
     
 }

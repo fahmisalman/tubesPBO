@@ -10,8 +10,8 @@
  */
 public class Pasien extends Orang{
 
-    public Pasien(String nama, String alamat) {
-        super(nama, alamat);
+    public Pasien(String nama) {
+        super(nama);
     }
     
 }
