@@ -19,7 +19,7 @@ public class Main {
         Pasien p1 = new Pasien("Fahmi");
         Pasien p2 = new Pasien("indah");
         Dokter d1 = new Dokter(1, "Salman");
-        Dokter d2 = new Dokter("Nurfikri");
+        Dokter d2 = new Dokter("Mei");
         r1.tambahPasien(p1, d1);
         r1.tambahPasien(p2, d1);
         r1.getDaftarPasien(0).addDiagnosa("Sakit");
