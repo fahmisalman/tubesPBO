@@ -10,12 +10,6 @@
  */
 public abstract class Orang {
     private String nama;
-    private String alamat;
-    
-    public Orang (String nama, String alamat) {
-        this.nama = nama;
-        this.alamat = alamat;
-    }
     
     public Orang (String nama) {
         this.nama = nama;
@@ -29,11 +23,4 @@ public abstract class Orang {
         this.nama = nama;
     }
 
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
-    }
 }
