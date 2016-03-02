@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Ruangan r1 = new Ruangan("Zaitun", 5);
+        Ruangan r1 = new Ruangan("RS", 5);
         Pasien p1 = new Pasien(1, "Fahmi");
         Pasien p2 = new Pasien(2, "indah");
         Dokter d1 = new Dokter(1, "Salman");
