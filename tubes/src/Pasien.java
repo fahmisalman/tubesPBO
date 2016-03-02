@@ -10,8 +10,17 @@
  */
 public class Pasien extends Orang{
 
-    public Pasien(String nama) {
+    private int id;
+    
+    public Pasien(int id, String nama) {
         super(nama);
+        this.id = id;
     }
+
+    public int getId() {
+        return id;
+    }
+    
+    
     
 }

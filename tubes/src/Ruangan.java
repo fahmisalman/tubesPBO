@@ -33,4 +33,27 @@ public class Ruangan {
         return daftarPasien[i];
     }
     
+    public PasienInap getIdPasien(int id) {
+        int i;
+        for (i = 0; i < daftarPasien.length; i++) {
+            if(daftarPasien[i].getPasien().getId() == id) {
+                break;
+            }
+        }
+        return daftarPasien[i];
+    }
+    
+    public int getJmlPasien() {
+        return jmlPasien;
+    }
+    
+    public void removePasien(int i) {
+        int j;
+        for (j = i; j < jmlPasien; j++) {
+            daftarPasien[j] = daftarPasien[j+1];
+            j++;
+        }
+        jmlPasien--;
+    }
+    
 }

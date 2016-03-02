@@ -45,5 +45,14 @@ public class PasienInap {
     public String getDiagnosa(int i) {
         return diagnosa[i];
     }
+    
+    public void deleteDiagnosa(int i) {
+        int j;
+        for (j = i; j < jmlDiagnosa; j++) {
+            diagnosa[j] = diagnosa[j+1];
+            j++;
+        }
+        jmlDiagnosa--;
+    }
 
 }
