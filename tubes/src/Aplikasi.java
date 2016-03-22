@@ -9,9 +9,9 @@
  * @author FahmiSalman
  */
 public class Aplikasi {
-    Dokter[] daftarDokter;
-    Pasien[] daftarPasien;
-    Ruangan[] daftarRuangan;
+    private Dokter[] daftarDokter;
+    private Pasien[] daftarPasien;
+    private Ruangan[] daftarRuangan;
     int jmlDokter;
     int jmlPasien;
     int jmlRuangan;
@@ -71,6 +71,51 @@ public class Aplikasi {
             }
         }
         return daftarRuangan[i];
+    }
+    
+    public void deletePasien(int id) {
+        int i;
+        for (i = 0; i < jmlPasien; i++) {
+            if (daftarPasien[i].getId() == id) {
+                break;
+            }
+        }
+        int j;
+        for (j = i; j < jmlPasien; j++) {
+            daftarPasien[j] = daftarPasien[j+1];
+            j++;
+        }
+        jmlPasien--;
+    }
+    
+    public void deleteDokter(int id) {
+        int i;
+        for (i = 0; i < jmlDokter; i++) {
+            if (daftarDokter[i].getId() == id) {
+                break;
+            }
+        }
+        int j;
+        for (j = i; j < jmlDokter; j++) {
+            daftarDokter[j] = daftarDokter[j+1];
+            j++;
+        }
+        jmlDokter--;
+    }
+    
+    public void deleteRuangan(int no) {
+        int i;
+        for (i = 0; i < jmlRuangan; i++) {
+            if (daftarRuangan[i].getNoRuang() == no) {
+                break;
+            }
+        }
+        int j;
+        for (j = i; j < jmlRuangan; j++) {
+            daftarRuangan[j] = daftarRuangan[j+1];
+            j++;
+        }
+        jmlRuangan--;
     }
     
 }
