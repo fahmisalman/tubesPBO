@@ -9,11 +9,13 @@
  * @author Fahmi Salman N
  */
 public class Ruangan {
+    private int noRuang;
     private String nama;
     private int jmlPasien;
     private PasienInap[] daftarPasien;
     
-    public Ruangan(String nama, int max) {
+    public Ruangan(int no, String nama, int max) {
+        noRuang = no;
         this.nama = nama;
         daftarPasien = new PasienInap[max];
     }
@@ -54,6 +56,10 @@ public class Ruangan {
             j++;
         }
         jmlPasien--;
+    }
+
+    public int getNoRuang() {
+        return noRuang;
     }
     
 }

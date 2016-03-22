@@ -43,4 +43,34 @@ public class Aplikasi {
         }
     }
     
+    public Dokter getDokter(int id) {
+        int i;
+        for (i = 0; i < jmlDokter; i++) {
+            if (daftarDokter[i].getId() == id) {
+                break;
+            }
+        }
+        return daftarDokter[i];
+    }
+    
+    public Pasien getPasien(int id) {
+        int i;
+        for (i = 0; i < jmlPasien; i++) {
+            if (daftarPasien[i].getId() == id) {
+                break;
+            }
+        }
+        return daftarPasien[i];
+    }
+    
+    public Ruangan getRuangan(int no) {
+        int i;
+        for (i = 0; i < jmlRuangan; i++) {
+            if (daftarRuangan[i].getNoRuang() == no) {
+                break;
+            }
+        }
+        return daftarRuangan[i];
+    }
+    
 }
