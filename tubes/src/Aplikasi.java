@@ -22,6 +22,25 @@ public class Aplikasi {
         daftarRuangan = new Ruangan[100];
     }
     
+    public void addDokter (Dokter dokter) {
+        if (jmlDokter <= daftarDokter.length) {
+            daftarDokter[jmlDokter] = dokter;
+            jmlDokter++;
+        }
+    }
     
+    public void addPasien (Pasien pasien) {
+        if (jmlPasien <= daftarPasien.length) {
+            daftarPasien[jmlPasien] = pasien;
+            jmlPasien++;
+        }
+    }
+    
+    public void addRuangan (Ruangan ruangan) {
+        if (jmlRuangan <= daftarRuangan.length) {
+            daftarRuangan[jmlRuangan] = ruangan;
+            jmlRuangan++;
+        }
+    }
     
 }
