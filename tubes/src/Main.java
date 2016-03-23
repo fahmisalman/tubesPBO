@@ -26,7 +26,7 @@ public class Main {
         r1.getDaftarPasien(0).addDiagnosa("Parah");
         r1.getDaftarPasien(0).addDiagnosa("Sekali");
         r1.getDaftarPasien(1).addDiagnosa("Sakit juga");
-        
+
         System.out.println("Ruangan : " + r1.getNama());
         for (int i = 0; i < r1.getJmlPasien(); i++) {
             System.out.println("    Nama    : " + r1.getDaftarPasien(i).getPasien().getNama());
@@ -35,10 +35,10 @@ public class Main {
                 System.out.println("        " + r1.getDaftarPasien(i).getDiagnosa(j));
             }
         }
-        
+
         r1.removePasien(0);
         r1.getDaftarPasien(0).deleteDiagnosa(0);
-        
+
         System.out.println("Ruangan : " + r1.getNama());
         for (int i = 0; i < r1.getJmlPasien(); i++) {
             System.out.println("    Nama    : " + r1.getDaftarPasien(i).getPasien().getNama());
@@ -47,8 +47,7 @@ public class Main {
                 System.out.println("        " + r1.getDaftarPasien(i).getDiagnosa(j));
             }
         }
-        
-        
+
     }
-    
+
 }

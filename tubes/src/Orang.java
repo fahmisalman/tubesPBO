@@ -9,9 +9,10 @@
  * @author Fahmi Salman N
  */
 public abstract class Orang {
+
     private String nama;
-    
-    public Orang (String nama) {
+
+    public Orang(String nama) {
         this.nama = nama;
     }
 

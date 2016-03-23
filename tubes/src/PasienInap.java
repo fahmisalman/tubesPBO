@@ -9,16 +9,17 @@
  * @author Fahmi Salman N
  */
 public class PasienInap {
+
     private Pasien pasien;
     private Dokter dokter;
     private String[] diagnosa = new String[5];
     private int jmlDiagnosa;
-    
+
     public PasienInap(Pasien pasien, Dokter dokter) {
         this.pasien = pasien;
         this.dokter = dokter;
     }
-    
+
     public Pasien getPasien() {
         return pasien;
     }
@@ -26,11 +27,11 @@ public class PasienInap {
     public Dokter getDokter() {
         return dokter;
     }
-    
+
     public void setDokter(Dokter dokter) {
         this.dokter = dokter;
     }
-    
+
     public void addDiagnosa(String diagnosa) {
         if (getJmlDiagnosa() <= diagnosa.length()) {
             this.diagnosa[getJmlDiagnosa()] = diagnosa;
@@ -45,11 +46,11 @@ public class PasienInap {
     public String getDiagnosa(int i) {
         return diagnosa[i];
     }
-    
+
     public void deleteDiagnosa(int i) {
         int j;
         for (j = i; j < jmlDiagnosa; j++) {
-            diagnosa[j] = diagnosa[j+1];
+            diagnosa[j] = diagnosa[j + 1];
             j++;
         }
         jmlDiagnosa--;
