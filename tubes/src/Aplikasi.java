@@ -228,4 +228,18 @@ public class Aplikasi {
         }
     }
     
+    public void tampilDaftarDokter() {
+        System.out.println("Daftar Dokter");
+        for (int i = 0; i < jmlDokter; i++){    
+            System.out.println(i+1 + ". " + daftarDokter[i].getNama());
+        }
+    }
+    
+    public void tampilDaftarRuangan() {
+        System.out.println("Daftar Ruangan");
+        for (int i = 0; i < jmlRuangan; i++){    
+            System.out.println(i+1 + ". " + daftarRuangan[i].getNoRuang());
+        }
+    }
+    
 }
