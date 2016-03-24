@@ -48,14 +48,7 @@ public class Driver {
 //            }
 //        }
     Aplikasi aplikasi = new Aplikasi();
-    aplikasi.menuInputPasien();
-    aplikasi.menuInputPasien();
-    aplikasi.menuInputPasien();
-    aplikasi.menuInputPasien();
-    aplikasi.menuInputPasien();
-    aplikasi.menuInputPasien();
-    aplikasi.menuHapusPasien();
-    aplikasi.tampilDaftarPasien();
+    aplikasi.mainMenu();
 //    aplikasi.menuInputDokter();
 
 //    Dokter d = new Dokter(12, "Fahmi");

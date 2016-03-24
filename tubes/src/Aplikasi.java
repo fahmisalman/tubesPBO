@@ -18,7 +18,7 @@ public class Aplikasi {
     int jmlDokter;
     int jmlPasien;
     int jmlRuangan;
-    
+
     Scanner scan = new Scanner(System.in);
 
     public Aplikasi() {
@@ -121,31 +121,33 @@ public class Aplikasi {
     }
 
     public void menuInputDokter() {
-        System.out.print("Id Dokter\t: "); int id = scan.nextInt();
-        if (getDokter(id) == null){
-            System.out.print("Nama Dokter\t: "); String nama = scan.next();
+        System.out.print("Id Dokter\t: ");
+        int id = scan.nextInt();
+        if (getDokter(id) == null) {
+            System.out.print("Nama Dokter\t: ");
+            String nama = scan.next();
             Dokter d = new Dokter(id, nama);
             addDokter(d);
             System.out.println("Penginputan berhasil");
-        }
-        else {
+        } else {
             System.out.println("Id sudah ada");
         }
-        
+
     }
-    
+
     public void menuInputPasien() {
-        System.out.print("Id Pasien\t: "); int id = scan.nextInt();
-        if (getDokter(id) == null){
-            System.out.print("Nama Pasien\t: "); String nama = scan.next();
+        System.out.print("Id Pasien\t: ");
+        int id = scan.nextInt();
+        if (getPasien(id) == null) {
+            System.out.print("Nama Pasien\t: ");
+            String nama = scan.next();
             Pasien p = new Pasien(id, nama);
             addPasien(p);
-        }
-        else {
+        } else {
             System.out.println("Id sudah ada");
         }
     }
-    
+
     public void menuInputRuangan() {
         int no = scan.nextInt();
         String nama = scan.next();
@@ -153,93 +155,207 @@ public class Aplikasi {
         Ruangan r = new Ruangan(no, nama, max);
         addRuangan(r);
     }
-    
+
     public void menuHapusDokter() {
-        System.out.print("Id Dokter\t: "); int id = scan.nextInt();
+        System.out.print("Id Dokter\t: ");
+        int id = scan.nextInt();
         if (getDokter(id) != null) {
             deleteDokter(id);
             System.out.println("Penghapusan berhasil");
-        }
-        else {
+        } else {
             System.out.println("Penghapusan gagal");
         }
     }
-    
+
     public void menuHapusPasien() {
-        System.out.print("Id Pasien\t: "); int id = scan.nextInt();
+        System.out.print("Id Pasien\t: ");
+        int id = scan.nextInt();
         if (getPasien(id) != null) {
             deletePasien(id);
             System.out.println("Penghapusan berhasil");
-        }
-        else {
+        } else {
             System.out.println("Penghapusan gagal");
         }
     }
-    
+
     public void menuHapusRuangan() {
-        System.out.print("No Ruangan\t: "); int no = scan.nextInt();
+        System.out.print("No Ruangan\t: ");
+        int no = scan.nextInt();
         if (getRuangan(no) != null) {
             deleteRuangan(no);
             System.out.println("Penghapusan berhasil");
-        }
-        else {
+        } else {
             System.out.println("Penghapusan gagal");
         }
     }
-    
+
     public void cariDokter() {
-        System.out.print("Id Dokter\t: "); int id = scan.nextInt();
+        System.out.print("Id Dokter\t: ");
+        int id = scan.nextInt();
         if (getDokter(id) != null) {
             System.out.println("Id Dokter\t: " + getDokter(id).getId());
-            System.out.println("Nama Dokter\t: " + getDokter(id).getNama()); 
-        }
-        else {
+            System.out.println("Nama Dokter\t: " + getDokter(id).getNama());
+        } else {
             System.out.println("Tidak ada dokter dengan id tersebut");
         }
     }
-    
+
     public void cariPasien() {
-        System.out.print("Id Pasien\t: "); int id = scan.nextInt();
+        System.out.print("Id Pasien\t: ");
+        int id = scan.nextInt();
         if (getPasien(id) != null) {
             System.out.println("Id Pasien\t: " + getPasien(id).getId());
-            System.out.println("Nama Pasien\t: " + getPasien(id).getNama()); 
-        }
-        else {
+            System.out.println("Nama Pasien\t: " + getPasien(id).getNama());
+        } else {
             System.out.println("Tidak ada pasien dengan id tersebut");
         }
     }
-    
+
     public void cariRuangan() {
-        System.out.print("No Ruangan\t: "); int no = scan.nextInt();
+        System.out.print("No Ruangan\t: ");
+        int no = scan.nextInt();
         if (getRuangan(no) != null) {
             System.out.println("No Ruangan\t: " + getRuangan(no).getNoRuang());
             System.out.println("Nama Ruangan\t: " + getRuangan(no).getNama());
             //Tambahkan daftar pasien dan dokter yg terdapat dalam ruangan
-        }
-        else {
+        } else {
             System.out.println("Tidak ada ruangan dengan no tersebut");
         }
     }
-    
+
     public void tampilDaftarPasien() {
         System.out.println("Daftar Pasien");
-        for (int i = 0; i < jmlPasien; i++){    
-            System.out.println(i+1 + ". " + daftarPasien[i].getNama());
+        for (int i = 0; i < jmlPasien; i++) {
+            System.out.println(i + 1 + ". " + daftarPasien[i].getNama());
         }
     }
-    
+
     public void tampilDaftarDokter() {
         System.out.println("Daftar Dokter");
-        for (int i = 0; i < jmlDokter; i++){    
-            System.out.println(i+1 + ". " + daftarDokter[i].getNama());
+        for (int i = 0; i < jmlDokter; i++) {
+            System.out.println(i + 1 + ". " + daftarDokter[i].getNama());
         }
     }
-    
+
     public void tampilDaftarRuangan() {
         System.out.println("Daftar Ruangan");
-        for (int i = 0; i < jmlRuangan; i++){    
-            System.out.println(i+1 + ". " + daftarRuangan[i].getNoRuang());
+        for (int i = 0; i < jmlRuangan; i++) {
+            System.out.println(i + 1 + ". " + daftarRuangan[i].getNoRuang());
         }
     }
-    
+
+    public void mainMenu() throws InterruptedException {
+        int pil;
+        do {
+            System.out.println("Main Menu\n----------------------------------------");
+            System.out.println("1. Input data");
+            System.out.println("2. Hapus data");
+            System.out.println("3. Cari data");
+            System.out.println("4. Lihat data");
+            System.out.println("5. Keluar\n----------------------------------------");
+            System.out.print("Pilih menu\t: ");
+            pil = scan.nextInt();
+            System.out.println("-----------------------------------------\n");
+            switch (pil) {
+                case 1: {
+                    System.out.println("1. Input dokter");
+                    System.out.println("2. Input pasien");
+                    System.out.println("3. Input Ruangan");
+                    System.out.println("0. Kembali\n");
+                    System.out.print("Pilih menu\t: ");
+                    int pilih = scan.nextInt();
+                    switch (pilih) {
+                        case 1: {
+                            menuInputDokter();
+                            break;
+                        }
+                        case 2: {
+                            menuInputPasien();
+                            break;
+                        }
+                        case 3: {
+                            menuInputRuangan();
+                            break;
+                        }
+                    }
+                    Thread.sleep(2000);
+                    break;
+                }
+                case 2 : {
+                    System.out.println("1. Hapus dokter");
+                    System.out.println("2. Hapus pasien");
+                    System.out.println("3. Hapus Ruangan");
+                    System.out.println("0. Kembali\n");
+                    System.out.print("Pilih menu\t: ");
+                    int pilih = scan.nextInt();
+                    switch (pilih) {
+                        case 1: {
+                            menuHapusDokter();
+                            break;
+                        }
+                        case 2: {
+                            menuHapusPasien();
+                            break;
+                        }
+                        case 3: {
+                            menuHapusRuangan();
+                            break;
+                        }
+                    }
+                    Thread.sleep(2000);
+                    break;
+                }
+                case 3 : {
+                    System.out.println("1. Cari dokter");
+                    System.out.println("2. Cari pasien");
+                    System.out.println("3. Cari Ruangan");
+                    System.out.println("0. Kembali\n");
+                    System.out.print("Pilih menu\t: ");
+                    int pilih = scan.nextInt();
+                    switch (pilih) {
+                        case 1: {
+                            cariDokter();
+                            break;
+                        }
+                        case 2: {
+                            cariPasien();
+                            break;
+                        }
+                        case 3: {
+                            cariRuangan();
+                            break;
+                        }
+                    }
+                    Thread.sleep(2000);
+                    break;
+                }
+                case 4 : {
+                    System.out.println("1. Lihat dokter");
+                    System.out.println("2. Lihat pasien");
+                    System.out.println("3. Lihat Ruangan");
+                    System.out.println("0. Kembali\n");
+                    System.out.print("Pilih menu\t: ");
+                    int pilih = scan.nextInt();
+                    switch (pilih) {
+                        case 1: {
+                            tampilDaftarDokter();
+                            break;
+                        }
+                        case 2: {
+                            tampilDaftarPasien();
+                            break;
+                        }
+                        case 3: {
+                            tampilDaftarRuangan();
+                            break;
+                        }
+                    }
+                    Thread.sleep(2000);
+                    break;
+                }
+            }
+        } while (pil != 5);
+
+    }
+
 }
