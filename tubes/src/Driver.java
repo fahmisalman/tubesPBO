@@ -13,7 +13,7 @@ public class Driver {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
 //        Ruangan r1 = new Ruangan(1, "RS", 5);
 //        Pasien p1 = new Pasien(1, "Fahmi");
