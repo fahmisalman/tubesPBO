@@ -88,7 +88,6 @@ public class Aplikasi {
         int j;
         for (j = i; j < jmlPasien; j++) {
             daftarPasien[j] = daftarPasien[j + 1];
-            j++;
         }
         jmlPasien--;
     }
@@ -103,7 +102,6 @@ public class Aplikasi {
         int j;
         for (j = i; j < jmlDokter; j++) {
             daftarDokter[j] = daftarDokter[j + 1];
-            j++;
         }
         jmlDokter--;
     }
@@ -118,7 +116,6 @@ public class Aplikasi {
         int j;
         for (j = i; j < jmlRuangan; j++) {
             daftarRuangan[j] = daftarRuangan[j + 1];
-            j++;
         }
         jmlRuangan--;
     }
@@ -140,7 +137,7 @@ public class Aplikasi {
     public void menuInputPasien() {
         System.out.print("Id Pasien\t: "); int id = scan.nextInt();
         if (getDokter(id) == null){
-            System.out.print("Nama Dokter\t: "); String nama = scan.next();
+            System.out.print("Nama Pasien\t: "); String nama = scan.next();
             Pasien p = new Pasien(id, nama);
             addPasien(p);
         }
@@ -217,10 +214,17 @@ public class Aplikasi {
         if (getRuangan(no) != null) {
             System.out.println("No Ruangan\t: " + getRuangan(no).getNoRuang());
             System.out.println("Nama Ruangan\t: " + getRuangan(no).getNama());
-            //Tambahkan daftar pasien dan dokter
+            //Tambahkan daftar pasien dan dokter yg terdapat dalam ruangan
         }
         else {
             System.out.println("Tidak ada ruangan dengan no tersebut");
+        }
+    }
+    
+    public void tampilDaftarPasien() {
+        System.out.println("Daftar Pasien");
+        for (int i = 0; i < jmlPasien; i++){    
+            System.out.println(i+1 + ". " + daftarPasien[i].getNama());
         }
     }
     
