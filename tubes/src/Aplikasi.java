@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import java.util.Scanner;
+
 /**
  *
  * @author FahmiSalman
@@ -16,6 +18,8 @@ public class Aplikasi {
     int jmlDokter;
     int jmlPasien;
     int jmlRuangan;
+    
+    Scanner scan = new Scanner(System.in);
 
     public Aplikasi() {
         daftarDokter = new Dokter[100];
@@ -119,4 +123,25 @@ public class Aplikasi {
         jmlRuangan--;
     }
 
+    public void menuTambahDokter() {
+        int id = scan.nextInt();
+        String nama = scan.next();
+        Dokter d = new Dokter(id, nama);
+        addDokter(d);
+    }
+    
+    public void menuTambahPasien() {
+        int id = scan.nextInt();
+        String nama = scan.next();
+        Pasien p = new Pasien(id, nama);
+        addPasien(p);
+    }
+    
+    public void menuTambahRuangan() {
+        int no = scan.nextInt();
+        String nama = scan.next();
+        int max = scan.nextInt();
+        Ruangan r = new Ruangan(no, nama, max);
+        addRuangan(r);
+    }
 }
