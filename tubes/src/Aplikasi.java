@@ -217,8 +217,8 @@ public class Aplikasi {
             System.out.println("Nama Ruangan\t: " + getRuangan(no).getNama());
             System.out.println("Daftar Pasien Inap  : ");
             for (int i = 0; i < getRuangan(no).getJmlPasien(); i++) {
-                System.out.println("\t" + i+1 + ".\tNama Pasien\t: " + getRuangan(no).getDaftarPasien(i).getPasien());
-                System.out.println("\t\tNama Dokter\t: " + getRuangan(no).getDaftarPasien(i).getDokter());
+                System.out.println("\t" + i+1 + ".\tNama Pasien\t: " + getRuangan(no).getDaftarPasien(i).getPasien().getNama());
+                System.out.println("\t\tNama Dokter\t: " + getRuangan(no).getDaftarPasien(i).getDokter().getNama());
                 System.out.println("\t\tKeluhan\t: ");
                 for (int j = 0; j < getRuangan(no).getDaftarPasien(i).getJmlDiagnosa(); j++) {
                     System.out.println("\t\t\t" + j+1 + ". " + getRuangan(no).getDaftarPasien(i).getDiagnosa(j));
