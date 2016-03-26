@@ -215,7 +215,15 @@ public class Aplikasi {
         if (getRuangan(no) != null) {
             System.out.println("No Ruangan\t: " + getRuangan(no).getNoRuang());
             System.out.println("Nama Ruangan\t: " + getRuangan(no).getNama());
-            //Tambahkan daftar pasien dan dokter yg terdapat dalam ruangan
+            System.out.println("Daftar Pasien Inap  : ");
+            for (int i = 0; i < getRuangan(no).getJmlPasien(); i++) {
+                System.out.println("\t" + i+1 + ".\tNama Pasien\t: " + getRuangan(no).getDaftarPasien(i).getPasien());
+                System.out.println("\t\tNama Dokter\t: " + getRuangan(no).getDaftarPasien(i).getDokter());
+                System.out.println("\t\tKeluhan\t: ");
+                for (int j = 0; j < getRuangan(no).getDaftarPasien(i).getJmlDiagnosa(); j++) {
+                    System.out.println("\t\t\t" + j+1 + ". " + getRuangan(no).getDaftarPasien(i).getDiagnosa(j));
+                }
+            }
         } else {
             System.out.println("Tidak ada ruangan dengan no tersebut");
         }
@@ -243,13 +251,15 @@ public class Aplikasi {
     }
     
     public void inputPasienInap() {
-        System.out.println("No Ruangan\t: "); int no = scan.nextInt();
+        System.out.print("No Ruangan\t: "); int no = scan.nextInt();
         if (getRuangan(no) != null) {
-            System.out.println("Id Dokter\t: "); int idDokter = scan.nextInt();
+            System.out.print("Id Dokter\t: "); int idDokter = scan.nextInt();
             if (getDokter(idDokter) != null) {
-                System.out.println("Id Pasien\t: "); int idPasien = scan.nextInt();
+                System.out.print("Id Pasien\t: "); int idPasien = scan.nextInt();
                 if (getPasien(idPasien) != null) {
                     getRuangan(no).tambahPasien(getPasien(idPasien), getDokter(idDokter));
+                    System.out.print("Diagnosa : "); String diagnosa = scan.next();
+                    getRuangan(no).getIdPasien(idPasien).addDiagnosa(diagnosa);
                 }
                 else {
                     System.out.println("Tidak terdapat data pasien");
