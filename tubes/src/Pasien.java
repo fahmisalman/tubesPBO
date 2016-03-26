@@ -21,6 +21,11 @@ public class Pasien extends Orang{
         return id;
     }
     
-    
+    @Override
+    public String toString() {
+        String x = "Id Pasien\t : " + this.getId() + 
+                "\nNama Pasien\t : " + this.getNama();
+        return x;
+    }
     
 }

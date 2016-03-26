@@ -29,4 +29,11 @@ public class Dokter extends Orang{
         this.id = id;
     }
     
+    @Override
+    public String toString() {
+        String x = "Id Dokter\t : " + this.getId() + 
+                "\nNama Dokter\t : " + this.getNama();
+        return x;
+    }
+    
 }

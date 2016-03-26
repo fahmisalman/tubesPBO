@@ -193,8 +193,7 @@ public class Aplikasi {
         System.out.print("Id Dokter\t: ");
         int id = scan.nextInt();
         if (getDokter(id) != null) {
-            System.out.println("Id Dokter\t: " + getDokter(id).getId());
-            System.out.println("Nama Dokter\t: " + getDokter(id).getNama());
+            System.out.println(getDokter(id).toString());
         } else {
             System.out.println("Tidak ada dokter dengan id tersebut");
         }
@@ -204,8 +203,7 @@ public class Aplikasi {
         System.out.print("Id Pasien\t: ");
         int id = scan.nextInt();
         if (getPasien(id) != null) {
-            System.out.println("Id Pasien\t: " + getPasien(id).getId());
-            System.out.println("Nama Pasien\t: " + getPasien(id).getNama());
+            System.out.println(getPasien(id).toString());
         } else {
             System.out.println("Tidak ada pasien dengan id tersebut");
         }
@@ -243,6 +241,28 @@ public class Aplikasi {
             System.out.println(i + 1 + ". " + daftarRuangan[i].getNoRuang());
         }
     }
+    
+    public void inputPasienInap() {
+        System.out.println("No Ruangan\t: "); int no = scan.nextInt();
+        if (getRuangan(no) != null) {
+            System.out.println("Id Dokter\t: "); int idDokter = scan.nextInt();
+            if (getDokter(idDokter) != null) {
+                System.out.println("Id Pasien\t: "); int idPasien = scan.nextInt();
+                if (getPasien(idPasien) != null) {
+                    getRuangan(no).tambahPasien(getPasien(idPasien), getDokter(idDokter));
+                }
+                else {
+                    System.out.println("Tidak terdapat data pasien");
+                }
+            }
+            else {
+                System.out.println("Tidak terdapat data dokter");
+            }
+        }
+        else {
+            System.out.println("Tidak terdapat data ruangan");
+        }
+    }
 
     public void mainMenu() throws InterruptedException {
         int pil;
@@ -261,6 +281,7 @@ public class Aplikasi {
                     System.out.println("1. Input dokter");
                     System.out.println("2. Input pasien");
                     System.out.println("3. Input Ruangan");
+                    System.out.println("4. Input Pasien Inap");
                     System.out.println("0. Kembali\n");
                     System.out.print("Pilih menu\t: ");
                     int pilih = scan.nextInt();
@@ -275,6 +296,10 @@ public class Aplikasi {
                         }
                         case 3: {
                             menuInputRuangan();
+                            break;
+                        }
+                        case 4: {
+                            inputPasienInap();
                             break;
                         }
                     }
