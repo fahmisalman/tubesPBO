@@ -12,7 +12,7 @@ public class PasienInap {
 
     private Pasien pasien;
     private Dokter dokter;
-    private String[] diagnosa = new String[5];
+    private String[] diagnosa = new String[10];
     private int jmlDiagnosa;
 
     public PasienInap(Pasien pasien, Dokter dokter) {
@@ -51,7 +51,7 @@ public class PasienInap {
         int j;
         for (j = i; j < jmlDiagnosa; j++) {
             diagnosa[j] = diagnosa[j + 1];
-            j++;
+            System.out.println(j);
         }
         jmlDiagnosa--;
     }
