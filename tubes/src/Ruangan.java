@@ -54,7 +54,6 @@ public class Ruangan {
         int j;
         for (j = i; j < jmlPasien; j++) {
             daftarPasien[j] = daftarPasien[j + 1];
-            j++;
         }
         jmlPasien--;
     }

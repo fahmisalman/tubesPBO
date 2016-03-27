@@ -302,6 +302,19 @@ public class Aplikasi {
             }
         }
     }
+    
+    public void hapusPasienInap() {
+        System.out.print("No Ruangan\t: ");
+        int no = scan.nextInt();
+        if (getRuangan(no) != null) {
+            System.out.print("Indeks Pasien Inap\t: ");
+            int idx = scan.nextInt();
+            idx--;
+            if (getRuangan(no).getDaftarPasien(idx) != null) {
+                getRuangan(no).removePasien(idx);
+            }
+        }
+    }
 
     public void mainMenu() throws InterruptedException {
         int pil;
@@ -367,8 +380,13 @@ public class Aplikasi {
                             menuHapusRuangan();
                             break;
                         }
+                        case 4: {
+                            hapusPasienInap();
+                            break;
+                        }
                         case 5: {
                             hapusDiagnosa();
+                            break;
                         }
                     }
                     Thread.sleep(2000);
