@@ -149,11 +149,17 @@ public class Aplikasi {
     }
 
     public void menuInputRuangan() {
+        System.out.print("No Ruangan\t: ");
         int no = scan.nextInt();
-        String nama = scan.next();
-        int max = scan.nextInt();
-        Ruangan r = new Ruangan(no, nama, max);
-        addRuangan(r);
+        if (getRuangan(no) == null) {
+            System.out.print("Nama Ruangan\t: ");
+            String nama = scan.next();
+            System.out.print("Maks Pasien\t: ");
+            int max = scan.nextInt();
+            Ruangan r = new Ruangan(no, nama, max);
+            addRuangan(r);
+        }
+
     }
 
     public void menuHapusDokter() {
@@ -217,11 +223,11 @@ public class Aplikasi {
             System.out.println("Nama Ruangan\t: " + getRuangan(no).getNama());
             System.out.println("Daftar Pasien Inap  : ");
             for (int i = 0; i < getRuangan(no).getJmlPasien(); i++) {
-                System.out.println("\t" + i+1 + ".\tNama Pasien\t: " + getRuangan(no).getDaftarPasien(i).getPasien().getNama());
+                System.out.println("\t" + i + 1 + ".\tNama Pasien\t: " + getRuangan(no).getDaftarPasien(i).getPasien().getNama());
                 System.out.println("\t\tNama Dokter\t: " + getRuangan(no).getDaftarPasien(i).getDokter().getNama());
-                System.out.println("\t\tKeluhan\t: ");
+                System.out.println("\t\tDiagnosa\t: ");
                 for (int j = 0; j < getRuangan(no).getDaftarPasien(i).getJmlDiagnosa(); j++) {
-                    System.out.println("\t\t\t" + j+1 + ". " + getRuangan(no).getDaftarPasien(i).getDiagnosa(j));
+                    System.out.println("\t\t\t" + j + 1 + ". " + getRuangan(no).getDaftarPasien(i).getDiagnosa(j));
                 }
             }
         } else {
@@ -249,28 +255,51 @@ public class Aplikasi {
             System.out.println(i + 1 + ". " + daftarRuangan[i].getNoRuang());
         }
     }
-    
+
     public void inputPasienInap() {
-        System.out.print("No Ruangan\t: "); int no = scan.nextInt();
+        System.out.print("No Ruangan\t: ");
+        int no = scan.nextInt();
         if (getRuangan(no) != null) {
-            System.out.print("Id Dokter\t: "); int idDokter = scan.nextInt();
+            System.out.print("Id Dokter\t: ");
+            int idDokter = scan.nextInt();
             if (getDokter(idDokter) != null) {
-                System.out.print("Id Pasien\t: "); int idPasien = scan.nextInt();
+                System.out.print("Id Pasien\t: ");
+                int idPasien = scan.nextInt();
                 if (getPasien(idPasien) != null) {
                     getRuangan(no).tambahPasien(getPasien(idPasien), getDokter(idDokter));
-                    System.out.print("Diagnosa : "); String diagnosa = scan.next();
-                    getRuangan(no).getIdPasien(idPasien).addDiagnosa(diagnosa);
-                }
-                else {
+                    System.out.print("Jumlah Diahgnosa");
+                    int jmlDiagnosa = scan.nextInt();
+                    for (int i = 0; i < jmlDiagnosa; i++) {
+                        System.out.print("Diagnosa : ");
+                        String diagnosa = scan.next();
+                        getRuangan(no).getIdPasien(idPasien).addDiagnosa(diagnosa);
+                    }
+                } else {
                     System.out.println("Tidak terdapat data pasien");
                 }
-            }
-            else {
+            } else {
                 System.out.println("Tidak terdapat data dokter");
             }
-        }
-        else {
+        } else {
             System.out.println("Tidak terdapat data ruangan");
+        }
+    }
+    
+    public void hapusDiagnosa() {
+        System.out.print("No Ruangan\t: ");
+        int no = scan.nextInt();
+        if (getRuangan(no) != null) {
+            System.out.print("Indeks Pasien Inap\t: ");
+            int idx = scan.nextInt();
+            idx--;
+            if (getRuangan(no).getDaftarPasien(idx) != null) {
+                System.out.print("Indeks diagnosa\t: ");
+                int ind = scan.nextInt();
+                ind--;
+                if (getRuangan(no).getDaftarPasien(idx).getDiagnosa(ind) != null) {
+                    getRuangan(no).getDaftarPasien(idx).deleteDiagnosa(ind);
+                }
+            }
         }
     }
 
@@ -316,10 +345,12 @@ public class Aplikasi {
                     Thread.sleep(2000);
                     break;
                 }
-                case 2 : {
+                case 2: {
                     System.out.println("1. Hapus dokter");
                     System.out.println("2. Hapus pasien");
                     System.out.println("3. Hapus Ruangan");
+                    System.out.println("4. Hapus pasien inap");
+                    System.out.println("5. Hapus Diagnosa");
                     System.out.println("0. Kembali\n");
                     System.out.print("Pilih menu\t: ");
                     int pilih = scan.nextInt();
@@ -336,11 +367,14 @@ public class Aplikasi {
                             menuHapusRuangan();
                             break;
                         }
+                        case 5: {
+                            hapusDiagnosa();
+                        }
                     }
                     Thread.sleep(2000);
                     break;
                 }
-                case 3 : {
+                case 3: {
                     System.out.println("1. Cari dokter");
                     System.out.println("2. Cari pasien");
                     System.out.println("3. Cari Ruangan");
@@ -364,7 +398,7 @@ public class Aplikasi {
                     Thread.sleep(2000);
                     break;
                 }
-                case 4 : {
+                case 4: {
                     System.out.println("1. Lihat dokter");
                     System.out.println("2. Lihat pasien");
                     System.out.println("3. Lihat Ruangan");
