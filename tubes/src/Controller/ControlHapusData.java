@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import View.Utama;
 import View.hapusdata;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,14 +25,18 @@ public class ControlHapusData implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         if (event == hapusData.getHapusDokter()) {
+            new ControlHapusDokter();
             hapusData.dispose();
         } else if (event == hapusData.getHapusPasien()) {
+            new ControlHapusPasien();
             hapusData.dispose();
         } else if (event == hapusData.getHapusInap()) {
+            new ControlHapusInap();
             hapusData.dispose();
         } else if (event == hapusData.getHapusDiagnosa()) {
             hapusData.dispose();
         } else if (event == hapusData.getHapusRuangan()) {
+            new ControlHapusRuangan();
             hapusData.dispose();
         } else if (event == hapusData.getKembali()) {
             new ControlMenu();

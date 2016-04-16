@@ -26,10 +26,13 @@ public class ControlCariData implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         if (event == cariData.getCariDokter()) {
+            new ControlCariDokter();
             cariData.dispose();
         } else if (event == cariData.getCariPasien()) {
+            new ControlCariPasien();
             cariData.dispose();
         } else if (event == cariData.getCariRuangan()) {
+            new ControlCariRuangan();
             cariData.dispose();
         } else if (event == cariData.getKembali()) {
             new ControlMenu();

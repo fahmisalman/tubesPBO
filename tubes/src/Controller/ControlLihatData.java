@@ -41,6 +41,7 @@ public class ControlLihatData implements ActionListener{
             new ControlLihatPasien();
             lihatData.dispose();
         } else if (event == lihatData.getLihatRuangan()) {
+            new ControlLihatRuangan();
             lihatData.dispose();
         } else if (event == lihatData.getKembali()) {
             new ControlMenu();
