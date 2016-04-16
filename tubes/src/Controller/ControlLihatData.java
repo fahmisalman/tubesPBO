@@ -27,6 +27,7 @@ public class ControlLihatData implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         if (event == lihatData.getLihatDokter()) {
+            new ControlLihatDokter();
             lihatData.dispose();
         } else if (event == lihatData.getLihatPasien()) {
             lihatData.dispose();

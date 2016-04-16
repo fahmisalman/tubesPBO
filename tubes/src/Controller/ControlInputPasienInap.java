@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.PasienInap;
-import Model.Ruangan;
 import View.inputpasieninap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
