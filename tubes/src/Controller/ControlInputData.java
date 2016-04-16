@@ -28,12 +28,16 @@ public class ControlInputData implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         if (event == inputData.getInputDokter()) {
+            new ControlInputDokter();
             inputData.dispose();
         } else if (event == inputData.getInputPasien()) {
+            new ControlInputPasien();
+            inputData.dispose();
+        } else if (event == inputData.getInputRuangan()) {
+            new ControlInputRuangan();
             inputData.dispose();
         } else if (event == inputData.getInputPasienInap()) {
-            inputData.dispose();
-        } else if (event == inputData.getInputPasienInap()) {
+            new ControlInputPasienInap();
             inputData.dispose();
         } else if (event == inputData.getKembali()) {
             new ControlMenu();
