@@ -6,6 +6,8 @@
 package Controller;
 
 import View.lihatdata;
+import View.lihatdokter;
+import View.lihatpasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,10 +18,16 @@ import java.awt.event.ActionListener;
 public class ControlLihatData implements ActionListener{
     
     private lihatdata lihatData;
+    private lihatdokter lihatDokter;
+    private lihatpasien lihatPasien;
     
     public ControlLihatData() {
         lihatData = new lihatdata();
+        lihatDokter = new lihatdokter();
+        lihatPasien = new lihatpasien();
         lihatData.setVisible(true);
+        lihatDokter.addListener(this);
+        lihatPasien.addListener(this);
         lihatData.addListener(this);
     }
 
@@ -30,6 +38,7 @@ public class ControlLihatData implements ActionListener{
             new ControlLihatDokter();
             lihatData.dispose();
         } else if (event == lihatData.getLihatPasien()) {
+            new ControlLihatPasien();
             lihatData.dispose();
         } else if (event == lihatData.getLihatRuangan()) {
             lihatData.dispose();

@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import View.lihatdokter;
+import View.lihatpasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,24 +13,24 @@ import java.awt.event.ActionListener;
  *
  * @author FahmiSalman
  */
-public class ControlLihatDokter implements ActionListener{
+public class ControlLihatPasien implements ActionListener{
     
-    private lihatdokter lihatDokter;
+    private lihatpasien lihatPasien;
     
-    public ControlLihatDokter() {
-        lihatDokter = new lihatdokter();
-        lihatDokter.setVisible(true);
-        lihatDokter.addListener(this);
-        lihatDokter.getOutput().setText("coba");
+    public ControlLihatPasien() {
+        lihatPasien = new lihatpasien();
+        lihatPasien.setVisible(true);
+        lihatPasien.addListener(this);
+        lihatPasien.getOutput().setText("tes");
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         
-        if (event == lihatDokter.getHome()) {
+        if (event == lihatPasien.getHome()) {
             new ControlMenu();
-            lihatDokter.dispose();
+            lihatPasien.dispose();
         }
     }
     

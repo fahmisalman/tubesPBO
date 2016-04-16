@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Meidiana Dwi P
@@ -30,6 +32,7 @@ public class lihatdokter extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         output = new javax.swing.JTextArea();
+        home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,6 +42,8 @@ public class lihatdokter extends javax.swing.JFrame {
         output.setColumns(20);
         output.setRows(5);
         jScrollPane1.setViewportView(output);
+
+        home.setText("Home");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,7 +55,11 @@ public class lihatdokter extends javax.swing.JFrame {
                 .addContainerGap(162, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(home)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -59,7 +68,9 @@ public class lihatdokter extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(home)
                 .addContainerGap())
         );
 
@@ -67,6 +78,7 @@ public class lihatdokter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea output;
@@ -78,4 +90,16 @@ public class lihatdokter extends javax.swing.JFrame {
     public javax.swing.JTextArea getOutput() {
         return output;
     }
+
+    /**
+     * @return the home
+     */
+    public javax.swing.JButton getHome() {
+        return home;
+    }
+    
+    public void addListener(ActionListener al) {
+        home.addActionListener(al);
+    }
+    
 }
