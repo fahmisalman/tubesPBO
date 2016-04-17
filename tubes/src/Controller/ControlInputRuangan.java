@@ -9,6 +9,8 @@ import Model.Ruangan;
 import View.inputruangan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,11 +32,18 @@ public class ControlInputRuangan implements ActionListener{
             int id = Integer.parseInt(inputRuangan.getNo().getText());
             String nama = inputRuangan.getNama().getText();
             int maks = Integer.parseInt(inputRuangan.getMaks().getText());
-            Ruangan r = new Ruangan(id, nama, maks);
-            System.out.println(r.getNoRuang());
-            System.out.println(r.getNama());
-            inputRuangan.dispose();
-            new ControlMenu();
+            Ruangan r;
+            try {
+                r = new Ruangan(id, nama, maks);
+                r.saveRuangan();
+                JOptionPane.showConfirmDialog(null, "Input data berhasil", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
+                inputRuangan.dispose();
+                new ControlMenu();
+            } catch (SQLException ex) {
+                JOptionPane.showConfirmDialog(null, "Tidak dapat memasukan data ke database", "Error", JOptionPane.ERROR_MESSAGE);
+                inputRuangan.dispose();
+                new ControlInputRuangan();
+            }
         }
         if (event == inputRuangan.getKembali()) {
             new ControlInputData();

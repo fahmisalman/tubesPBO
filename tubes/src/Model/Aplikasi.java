@@ -151,7 +151,7 @@ public class Aplikasi {
         }
     }
 
-    public void menuInputRuangan() {
+    public void menuInputRuangan() throws SQLException {
         System.out.print("No Ruangan\t: ");
         int no = scan.nextInt();
         if (getRuangan(no) == null) {
