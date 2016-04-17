@@ -34,6 +34,7 @@ public class ControlHapusData implements ActionListener{
             new ControlHapusInap();
             hapusData.dispose();
         } else if (event == hapusData.getHapusDiagnosa()) {
+            new ControlHapusDiagnosa();
             hapusData.dispose();
         } else if (event == hapusData.getHapusRuangan()) {
             new ControlHapusRuangan();

@@ -5,9 +5,11 @@
  */
 package Controller;
 
+import Model.Dokter;
 import View.hapusdokter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class ControlHapusDokter implements ActionListener{
     private hapusdokter hapusDokter;
+    private Dokter d;
     
     public ControlHapusDokter() {
         hapusDokter = new hapusdokter();
@@ -28,9 +31,20 @@ public class ControlHapusDokter implements ActionListener{
         Object event = ae.getSource();
         if (event == hapusDokter.getHapus()) {
             int id = Integer.parseInt(hapusDokter.getId().getText());
-            JOptionPane.showConfirmDialog(null, "Data berhasil dihapus", "Pemberitahuan", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
-            new ControlMenu();
+            try {
+                d = new Dokter(id, null);
+                d.deleteDokter(id);
+                JOptionPane.showConfirmDialog(null, "Data berhasil dihapus", "Pemberitahuan", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                new ControlMenu();
+                hapusDokter.dispose();
+            } catch (SQLException ex) {
+                JOptionPane.showConfirmDialog(null, "Tidak dapat menghapus data dari database", "Error", JOptionPane.ERROR_MESSAGE);
+                hapusDokter.dispose();
+                new ControlHapusDokter();
+            }
+        } else if (event == hapusDokter.getKembali()) {
             hapusDokter.dispose();
+            new ControlHapusData();
         }
     }
 }

@@ -6,6 +6,7 @@ package Model;
  * and open the template in the editor.
  */
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -122,7 +123,7 @@ public class Aplikasi {
         jmlRuangan--;
     }
 
-    public void menuInputDokter() {
+    public void menuInputDokter() throws SQLException {
         System.out.print("Id Dokter\t: ");
         int id = scan.nextInt();
         if (getDokter(id) == null) {
@@ -137,7 +138,7 @@ public class Aplikasi {
 
     }
 
-    public void menuInputPasien() {
+    public void menuInputPasien() throws SQLException {
         System.out.print("Id Pasien\t: ");
         int id = scan.nextInt();
         if (getPasien(id) == null) {
@@ -318,7 +319,7 @@ public class Aplikasi {
         }
     }
 
-    public void mainMenu() throws InterruptedException {
+    public void mainMenu() throws InterruptedException, SQLException {
         int pil;
         do {
             System.out.println("Main Menu\n----------------------------------------");

@@ -9,14 +9,19 @@ import Model.Pasien;
 import View.inputpasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author FahmiSalman
  */
-public class ControlInputPasien implements ActionListener{
+public class ControlInputPasien implements ActionListener {
+
     private inputpasien inputPasien;
-    
+
     public ControlInputPasien() {
         inputPasien = new inputpasien();
         inputPasien.setVisible(true);
@@ -29,11 +34,18 @@ public class ControlInputPasien implements ActionListener{
         if (event == inputPasien.getSimpan()) {
             int id = Integer.parseInt(inputPasien.getId().getText());
             String nama = inputPasien.getNama().getText();
-            Pasien p = new Pasien(id, nama);
-            System.out.println(p.getId());
-            System.out.println(p.getNama());
-            inputPasien.dispose();
-            new ControlMenu();
+            try {
+                Pasien p = new Pasien(id, nama);
+                p.savePasien();
+                JOptionPane.showConfirmDialog(null, "Input data berhasil", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
+                inputPasien.dispose();
+                new ControlMenu();
+            } catch (SQLException ex) {
+                JOptionPane.showConfirmDialog(null, "Tidak dapat memasukan data ke database", "Error", JOptionPane.ERROR_MESSAGE);
+                inputPasien.dispose();
+                new ControlInputPasien();
+            }
+            
         } else if (event == inputPasien.getKembali()) {
             new ControlInputData();
             inputPasien.dispose();
