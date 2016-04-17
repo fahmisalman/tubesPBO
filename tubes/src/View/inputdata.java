@@ -34,6 +34,7 @@ public class inputdata extends javax.swing.JFrame {
         inputRuangan = new javax.swing.JButton();
         inputPasienInap = new javax.swing.JButton();
         kembali = new javax.swing.JButton();
+        inputDiagnosa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +55,8 @@ public class inputdata extends javax.swing.JFrame {
 
         kembali.setText("Kembali");
 
+        inputDiagnosa.setText("Input data diagnosa");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,18 +64,19 @@ public class inputdata extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(kembali))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(132, 132, 132)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(inputPasienInap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(inputRuangan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(inputPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputDokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(kembali)))
+                            .addComponent(inputDokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inputDiagnosa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,7 +92,9 @@ public class inputdata extends javax.swing.JFrame {
                 .addComponent(inputRuangan)
                 .addGap(18, 18, 18)
                 .addComponent(inputPasienInap)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(inputDiagnosa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(kembali)
                 .addContainerGap())
         );
@@ -106,6 +112,7 @@ public class inputdata extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton inputDiagnosa;
     private javax.swing.JButton inputDokter;
     private javax.swing.JButton inputPasien;
     private javax.swing.JButton inputPasienInap;
@@ -175,6 +182,7 @@ public class inputdata extends javax.swing.JFrame {
         inputPasien.addActionListener(al);
         inputPasienInap.addActionListener(al);
         inputRuangan.addActionListener(al);
+        inputDiagnosa.addActionListener(al);
         kembali.addActionListener(al);
     }
 
@@ -183,5 +191,12 @@ public class inputdata extends javax.swing.JFrame {
      */
     public javax.swing.JButton getKembali() {
         return kembali;
+    }
+
+    /**
+     * @return the inputDiagnosa
+     */
+    public javax.swing.JButton getInputDiagnosa() {
+        return inputDiagnosa;
     }
 }
