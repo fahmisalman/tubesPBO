@@ -27,7 +27,6 @@ public class ControlHapusDiagnosa implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         if (event == hapusDiagnosa.getHapus()) {
-            int no = Integer.parseInt(hapusDiagnosa.getNo().getText());
             int idP = Integer.parseInt(hapusDiagnosa.getIdP().getText());
             int idD = Integer.parseInt(hapusDiagnosa.getIdD().getText());
             JOptionPane.showConfirmDialog(null, "Data berhasil dihapus", "Pemberitahuan", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);

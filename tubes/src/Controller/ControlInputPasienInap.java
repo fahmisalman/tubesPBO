@@ -9,14 +9,20 @@ import Model.PasienInap;
 import View.inputpasieninap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author FahmiSalman
  */
-public class ControlInputPasienInap implements ActionListener{
+public class ControlInputPasienInap implements ActionListener {
+
     private inputpasieninap inputInap;
-    
+    private PasienInap inap;
+
     public ControlInputPasienInap() {
         inputInap = new inputpasieninap();
         inputInap.setVisible(true);
@@ -27,19 +33,25 @@ public class ControlInputPasienInap implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         if (event == inputInap.getSimpan()) {
+            int idPi = Integer.parseInt(inputInap.getIdPi().getText());
             int no = Integer.parseInt(inputInap.getNo().getText());
             int idD = Integer.parseInt(inputInap.getIdDokter().getText());
             int idP = Integer.parseInt(inputInap.getIdPasien().getText());
-            System.out.println(no);
-            System.out.println(idP);
-            System.out.println(idD);
-//            PasienInap pi = new PasienInap(pasien, dokter);
-            new ControlMenu();
-            inputInap.dispose();
+            try {
+                inap = new PasienInap();
+                inap.saveInap(idPi, idD, idP, no);
+                JOptionPane.showConfirmDialog(null, "Input data berhasil", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
+                inputInap.dispose();
+                new ControlMenu();
+            } catch (SQLException ex) {
+                JOptionPane.showConfirmDialog(null, "Tidak dapat memasukan data ke database", "Error", JOptionPane.ERROR_MESSAGE);
+                inputInap.dispose();
+                new ControlInputPasienInap();
+            }
         } else if (event == inputInap.getKembali()) {
             new ControlInputData();
             inputInap.dispose();
         }
-        
+
     }
 }

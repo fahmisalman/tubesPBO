@@ -42,7 +42,7 @@ public class Ruangan {
         return nama;
     }
 
-    public void tambahPasien(Pasien pasien, Dokter dokter) {
+    public void tambahPasien(Pasien pasien, Dokter dokter) throws SQLException {
         if (jmlPasien < this.daftarPasien.length) {
             this.daftarPasien[jmlPasien] = new PasienInap(pasien, dokter);
             jmlPasien++;

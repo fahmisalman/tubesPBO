@@ -259,7 +259,7 @@ public class Aplikasi {
         }
     }
 
-    public void inputPasienInap() {
+    public void inputPasienInap() throws SQLException {
         System.out.print("No Ruangan\t: ");
         int no = scan.nextInt();
         if (getRuangan(no) != null) {

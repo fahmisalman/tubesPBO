@@ -92,9 +92,9 @@ public class inputdata extends javax.swing.JFrame {
                 .addComponent(inputRuangan)
                 .addGap(18, 18, 18)
                 .addComponent(inputPasienInap)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(inputDiagnosa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(kembali)
                 .addContainerGap())
         );
