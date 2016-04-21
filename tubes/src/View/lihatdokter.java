@@ -30,20 +30,28 @@ public class lihatdokter extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        output = new javax.swing.JTextArea();
         home = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Lihat Data Dokter");
 
-        output.setBackground(getBackground());
-        output.setColumns(20);
-        output.setRows(5);
-        jScrollPane1.setViewportView(output);
-
         home.setText("Home");
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "id Dokter", "nama Dokter"
+            }
+        ));
+        jScrollPane2.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,10 +64,10 @@ public class lihatdokter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(home)))
+                        .addComponent(home))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -68,8 +76,8 @@ public class lihatdokter extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(home)
                 .addContainerGap())
         );
@@ -80,16 +88,13 @@ public class lihatdokter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton home;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea output;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 
     /**
      * @return the output
      */
-    public javax.swing.JTextArea getOutput() {
-        return output;
-    }
 
     /**
      * @return the home
@@ -100,6 +105,13 @@ public class lihatdokter extends javax.swing.JFrame {
     
     public void addListener(ActionListener al) {
         home.addActionListener(al);
+    }
+
+    /**
+     * @return the table
+     */
+    public javax.swing.JTable getTable() {
+        return table;
     }
     
 }

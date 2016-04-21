@@ -39,6 +39,9 @@ public class ControlInputData implements ActionListener{
         } else if (event == inputData.getInputPasienInap()) {
             new ControlInputPasienInap();
             inputData.dispose();
+        } else if (event == inputData.getInputDiagnosa()) {
+            new ControlInputDiagnosa();
+            inputData.dispose();
         } else if (event == inputData.getKembali()) {
             new ControlMenu();
             inputData.dispose();

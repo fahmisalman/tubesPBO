@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author FahmiSalman
@@ -139,4 +141,38 @@ public class InputDiagnosa extends javax.swing.JFrame {
     private javax.swing.JButton kembali;
     private javax.swing.JButton simpan;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the diagnosa
+     */
+    public javax.swing.JTextField getDiagnosa() {
+        return diagnosa;
+    }
+
+    /**
+     * @return the id
+     */
+    public javax.swing.JTextField getId() {
+        return id;
+    }
+
+    /**
+     * @return the kembali
+     */
+    public javax.swing.JButton getKembali() {
+        return kembali;
+    }
+
+    /**
+     * @return the simpan
+     */
+    public javax.swing.JButton getSimpan() {
+        return simpan;
+    }
+    
+    public void addListener(ActionListener al) {
+        simpan.addActionListener(al);
+        kembali.addActionListener(al);
+    }
+    
 }

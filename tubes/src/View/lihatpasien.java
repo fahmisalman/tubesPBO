@@ -30,36 +30,43 @@ public class lihatpasien extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        output = new javax.swing.JTextArea();
         home = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Lihat Data Dokter");
-
-        output.setBackground(getBackground());
-        output.setColumns(20);
-        output.setRows(5);
-        jScrollPane1.setViewportView(output);
+        jLabel1.setText("Lihat Data Pasien");
 
         home.setText("Home");
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "id Pasien", "Nama Pasien"
+            }
+        ));
+        jScrollPane1.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel1)
-                .addContainerGap(165, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jLabel1)
+                        .addGap(0, 156, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(home)))
+                        .addComponent(home))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -68,8 +75,8 @@ public class lihatpasien extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(home)
                 .addContainerGap())
         );
@@ -85,15 +92,9 @@ public class lihatpasien extends javax.swing.JFrame {
     private javax.swing.JButton home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea output;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 
-    /**
-     * @return the output
-     */
-    public javax.swing.JTextArea getOutput() {
-        return output;
-    }
 
     /**
      * @return the home
@@ -104,6 +105,13 @@ public class lihatpasien extends javax.swing.JFrame {
     
     public void addListener(ActionListener al) {
         home.addActionListener(al);
+    }
+
+    /**
+     * @return the table
+     */
+    public javax.swing.JTable getTable() {
+        return table;
     }
     
 }

@@ -10,6 +10,9 @@ import View.lihatdokter;
 import View.lihatpasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,10 +38,18 @@ public class ControlLihatData implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object event = ae.getSource();
         if (event == lihatData.getLihatDokter()) {
-            new ControlLihatDokter();
+            try {
+                new ControlLihatDokter();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControlLihatData.class.getName()).log(Level.SEVERE, null, ex);
+            }
             lihatData.dispose();
         } else if (event == lihatData.getLihatPasien()) {
-            new ControlLihatPasien();
+            try {
+                new ControlLihatPasien();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControlLihatData.class.getName()).log(Level.SEVERE, null, ex);
+            }
             lihatData.dispose();
         } else if (event == lihatData.getLihatRuangan()) {
             new ControlLihatRuangan();
