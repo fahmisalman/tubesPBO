@@ -37,6 +37,9 @@ public class ControlCariData implements ActionListener{
         } else if (event == cariData.getKembali()) {
             new ControlMenu();
             cariData.dispose();
+        } else if (event == cariData.getInap()) {
+            new ControlCariInap();
+            cariData.dispose();
         }
     }
     

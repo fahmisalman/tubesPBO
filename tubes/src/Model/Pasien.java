@@ -62,5 +62,12 @@ public class Pasien extends Orang{
                 "\nNama Pasien\t : " + this.getNama();
         return x;
     }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
     
 }

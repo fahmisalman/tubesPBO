@@ -19,12 +19,17 @@ import java.sql.Statement;
 public class PasienInap {
 
     private Pasien pasien;
+    private String namaPasien;
+    private String namaDokter;
+    private String namaRuang;
     private Dokter dokter;
     private String[] diagnosa = new String[10];
     private int jmlDiagnosa;
     private Connection conn;
     private Statement stat;
     private String query;
+    private int noRuang;
+    private int idPasienInap;
 
     public PasienInap(Pasien pasien, Dokter dokter) throws SQLException {
         this.pasien = pasien;
@@ -84,17 +89,78 @@ public class PasienInap {
         stat.execute(query);
     }
     
-    public Ruangan getInap(int id) throws SQLException {
-        query = "Select * from pasieninap where idPasienInap = '" + id + "'";
+    public PasienInap getInap(int id) throws SQLException {
+        query = "Select * from pasieninap"
+                + " join dokter using (idDokter)"
+                + " join pasien using (idPasien)"
+                + " join ruangan using (noRuang)\n"
+                + "where idPasienInap = '" + id + "'";
         ResultSet rs = stat.executeQuery(query);
-        Ruangan r = null;
+        PasienInap p = null;
         if (rs.next()) {
-            int noRuangan = rs.getInt("noRuang");
-            String namaRuang = rs.getString("namaRuang");
-            int maks = rs.getInt("maksPasien");
-            r = new Ruangan(noRuangan, namaRuang, maks);
+            p = new PasienInap();
+            p.setIdPasienInap(rs.getInt("idPasienInap"));
+            p.setNamaRuang(rs.getString("namaRuang"));
+            p.setNamaDokter(rs.getString("namaDokter"));
+            p.setNamaPasien(rs.getString("namaPasien"));
         }
-        return r;
+        return p;
+    }
+
+    /**
+     * @return the idPasienInap
+     */
+    public int getIdPasienInap() {
+        return idPasienInap;
+    }
+
+    /**
+     * @param idPasienInap the idPasienInap to set
+     */
+    public void setIdPasienInap(int idPasienInap) {
+        this.idPasienInap = idPasienInap;
+    }
+
+    /**
+     * @return the namaPasien
+     */
+    public String getNamaPasien() {
+        return namaPasien;
+    }
+
+    /**
+     * @param namaPasien the namaPasien to set
+     */
+    public void setNamaPasien(String namaPasien) {
+        this.namaPasien = namaPasien;
+    }
+
+    /**
+     * @return the namaDokter
+     */
+    public String getNamaDokter() {
+        return namaDokter;
+    }
+
+    /**
+     * @param namaDokter the namaDokter to set
+     */
+    public void setNamaDokter(String namaDokter) {
+        this.namaDokter = namaDokter;
+    }
+
+    /**
+     * @return the namaRuang
+     */
+    public String getNamaRuang() {
+        return namaRuang;
+    }
+
+    /**
+     * @param namaRuang the namaRuang to set
+     */
+    public void setNamaRuang(String namaRuang) {
+        this.namaRuang = namaRuang;
     }
 
 }

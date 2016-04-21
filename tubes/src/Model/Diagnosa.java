@@ -70,7 +70,20 @@ public class Diagnosa {
             int idD = rs.getInt("idx");
             String diag = rs.getString("namaDiagnosa");
             int idP = rs.getInt("idPasienInap");
-            d = new Diagnosa(idP, idPasienInap, diagnosa);
+            d = new Diagnosa(idD, idP, diag);
+        }
+        return d;
+    }
+    
+    public Diagnosa getPasienInap(int id) throws SQLException {
+        query = "Select * from diagnosa where idPasienInap = '" + id + "'";
+        ResultSet rs = stat.executeQuery(query);
+        Diagnosa d = null;
+        if (rs.next()) {
+            int idD = rs.getInt("idx");
+            String diag = rs.getString("namaDiagnosa");
+            int idP = rs.getInt("idPasienInap");
+            d = new Diagnosa(idD, idP, diag);
         }
         return d;
     }

@@ -52,7 +52,11 @@ public class ControlLihatData implements ActionListener{
             }
             lihatData.dispose();
         } else if (event == lihatData.getLihatRuangan()) {
-            new ControlLihatRuangan();
+            try {
+                new ControlLihatRuangan();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControlLihatData.class.getName()).log(Level.SEVERE, null, ex);
+            }
             lihatData.dispose();
         } else if (event == lihatData.getKembali()) {
             new ControlMenu();
