@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,11 +40,19 @@ public class ControlCariInap implements ActionListener{
                 if (inap.getInap(id) != null) {
                     new ControlLihatInap(id);
                     cariInap.dispose();
+                } else {
+                    JOptionPane.showConfirmDialog(null, "Data tidak ditemukan", "Pemberitahuan", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    cariInap.dispose();
+                    new ControlCariInap();
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(ControlCariInap.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showConfirmDialog(null, "Inputan salah", "Pemberitahuan", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                cariInap.dispose();
+                new ControlCariInap();
             }
-            
+        } else if(event == cariInap.getKembali()) {
+            cariInap.dispose();
+            new ControlCariData();
         }
     }
 

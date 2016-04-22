@@ -44,7 +44,9 @@ public class ControlHapusPasien implements ActionListener{
                 hapusPasien.dispose();
                 new ControlHapusPasien();
             }
-            
+        } else if(event == hapusPasien.getKembali()) {
+            hapusPasien.dispose();
+            new ControlHapusData();
         }
     }
 }

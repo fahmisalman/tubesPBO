@@ -44,8 +44,13 @@ public class ControlInputDiagnosa implements ActionListener{
                 inputDiagnosa.dispose();
                 new ControlMenu();
             } catch (SQLException ex) {
-                Logger.getLogger(ControlInputDiagnosa.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showConfirmDialog(null, "Tidak dapat memasukan data ke database", "Error", JOptionPane.ERROR_MESSAGE);
+                inputDiagnosa.dispose();
+                new ControlInputDiagnosa();
             }
+        } else if(event == inputDiagnosa.getKembali()) {
+            inputDiagnosa.dispose();
+            new ControlInputData();
         }
     }
     
